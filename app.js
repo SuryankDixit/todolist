@@ -1,3 +1,4 @@
+require("dotenv").config;
 const express = require("express");
 const bodyParser = require("body-parser");
 const date = require(__dirname + "/date.js");
@@ -14,7 +15,7 @@ app.use(express.static("public"));
 
 
 
-mongoose.connect("mongodb+srv://suryankdixit:test123@cluster0.v2feh.mongodb.net/todolistDB", { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(process.env.MONGO, { useNewUrlParser: true, useUnifiedTopology: true })
 
 
 const itemsSchema = new mongoose.Schema({
